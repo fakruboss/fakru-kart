@@ -2,7 +2,7 @@ import React from 'react';
 import "./index.css";
 import { Link } from "react-router-dom";
 
-class Item extends React.Component {
+class Category extends React.Component {
     render() {
         const { itemName } = this.props;
         const url = `/${itemName}`;
@@ -16,4 +16,4 @@ class Item extends React.Component {
     }
 }
 
-export default Item;
+export default Category;

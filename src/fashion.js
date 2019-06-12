@@ -1,6 +1,6 @@
 import React from "react";
 import fkart from "./app-data.js";
-import Item from "./item.js";
+import Item from "./singleItem.js";
 
 class Fashion extends React.Component {
     render() {

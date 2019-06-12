@@ -1,17 +1,29 @@
 import React from "react";
 import fkart from "./app-data.js";
 import "./index.css";
-import Item from "./item.js";
+import Category from "./category.js";
 
+function Navbar() {
+    return (
+        <div className="navbar">
+            <input placeholder="search..." className="searchbar" type="text"/>
+        </div>
+    );
+}
 class Homepage extends React.Component {
     render() {
         const categories = [];
         for (let category in fkart.categories) {
             categories.push(
-                <Item key={category} itemName={category} />
+                <Category key={category} itemName={category} />
             );
         }
-        return <div>{categories}</div>;
+        return (
+            <>
+                <Navbar />
+                <div>{categories}</div>
+            </>
+        );
     }
 }
 
