@@ -1,17 +1,17 @@
 import React from "react";
-import fkart from "./app-data.js";
 import Item from "./singleItem.js";
 
 class Sports extends React.Component {
     render() {
         const sportsItems = [];
-        const { items } = fkart.categories.sports;
+        const { items } = this.props.sportsData;
         items.forEach(item => {
             sportsItems.push(
                 <Item
                     key={item.id}
                     itemName={item.name}
                     itemPrice={item.price}
+                    addToCart={this.props.addToCart}
                 />
             );
         });

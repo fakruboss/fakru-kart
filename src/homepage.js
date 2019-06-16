@@ -1,29 +1,30 @@
 import React from "react";
-import fkart from "./app-data.js";
 import "./index.css";
-import Category from "./category.js";
+import { Link } from "react-router-dom";
 
-function Navbar() {
-    return (
-        <div className="navbar">
-            <input placeholder="search..." className="searchbar" type="text"/>
-        </div>
-    );
+class Category extends React.Component {
+    render() {
+        let { itemName } = this.props;
+        itemName = itemName[0].toUpperCase() + itemName.slice(1).toLowerCase();
+        const url = `/${itemName}`;
+        return (
+            <Link className="category-con-link" to={url}>
+                <div className="category-con">
+                    <span>{itemName}</span>
+                </div>
+            </Link>
+        );
+    }
 }
+
 class Homepage extends React.Component {
     render() {
         const categories = [];
-        for (let category in fkart.categories) {
-            categories.push(
-                <Category key={category} itemName={category} />
-            );
-        }
-        return (
-            <>
-                <Navbar />
-                <div>{categories}</div>
-            </>
-        );
+        const { categoriesHeading } = this.props;
+        categoriesHeading.forEach(category => {
+            categories.push(<Category key={category} itemName={category} />);
+        });
+        return <div className="vh-center">{categories}</div>;
     }
 }
 
